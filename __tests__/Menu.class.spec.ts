@@ -17,6 +17,18 @@ describe("constructor", () => {
     );
   });
 
+  test("doesn't adds click listener to canvas when closed", () => {
+    const canvas = mock<HTMLCanvasElement>();
+    const menuRect = new Rect(0, 0, 100, 100);
+    const buttons = [];
+    const menu = new Menu(canvas, menuRect, buttons, false);
+    expect(menu).toBeDefined();
+    expect(canvas.addEventListener).not.toHaveBeenCalledWith(
+      "click",
+      expect.any(Function),
+    );
+  });
+
   test("has a rect and buttons", () => {
     const canvas = mock<HTMLCanvasElement>();
     const rect = new Rect(0, 0, 1, 1);
