@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import { defaultExclude } from 'vitest/config';
 
 export default defineConfig({
   build: {
@@ -12,5 +13,15 @@ export default defineConfig({
       fileName: 'index',
     },
   },
-  plugins: [dts()]
+  plugins: [dts()],
+  test: {
+    globals: true,
+    coverage: {
+      exclude: [
+        ...defaultExclude,
+        'docs/',
+        'src/vite-env.d.ts',
+      ]
+    }
+  },
 })
