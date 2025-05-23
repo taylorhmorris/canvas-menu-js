@@ -18,7 +18,8 @@
     "lint-only": "eslint ./src ./__tests__ --fix",
     "lint": "npm run lint-only && npm run format",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@taylorhmorris/geometry": "^0.1.0"
