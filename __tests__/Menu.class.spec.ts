@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import { mock } from "vitest-mock-extended";
 import { Menu } from "../src/Menu.class";
 import { Rect } from "@taylorhmorris/geometry";
@@ -17,7 +17,7 @@ describe("constructor", () => {
     );
   });
 
-  test("doesn't adds click listener to canvas when closed", () => {
+  test("doesn't add click listener to canvas when closed", () => {
     const canvas = mock<HTMLCanvasElement>();
     const menuRect = new Rect(0, 0, 100, 100);
     const buttons = [];
