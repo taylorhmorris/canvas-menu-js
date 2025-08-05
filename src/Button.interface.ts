@@ -1,7 +1,11 @@
 import { Rect } from "@taylorhmorris/geometry";
 
 export interface ButtonInterface {
-  text: string;
   rect: Rect;
   onClick: () => void;
+  draw: (
+    ctx: CanvasRenderingContext2D,
+    offset?: [number, number],
+    color?: string,
+  ) => void;
 }
